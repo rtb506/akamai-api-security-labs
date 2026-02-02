@@ -1,0 +1,170 @@
+AKAMAI API SECURITY - DAY 1 FLASHCARDS
+======================================
+Format: Q: [Question] | A: [Answer]
+Date: January 31, 2026
+Total: 10 cards
+
+---
+
+CARD 1: BOLA Definition
+Q: What is BOLA (Broken Object Level Authorization)?
+A: A vulnerability where an authenticated user can access resources (objects) they don't own by manipulating the object ID in the API request. Example: Changing GET /orders/123 to GET /orders/124 to view another user's order. Also known as IDOR (Insecure Direct Object Reference). Ranked #1 in OWASP API Security Top 10 2023.
+
+---
+
+CARD 2: WAF Limitation
+Q: Why can't traditional WAFs detect BOLA attacks?
+A: Because BOLA requests are syntactically valid:
+- Valid authentication (correct JWT token)
+- No malicious payload strings (no SQLi, XSS)
+- Proper HTTP methods and headers
+- Returns 200 OK (server processes successfully)
+WAFs use signature matching—they look for malformed requests, not authorization logic flaws. BOLA is a semantic error (wrong intent) not a syntax error.
+
+---
+
+CARD 3: Akamai BOLA Detection
+Q: How does Akamai API Security detect BOLA attacks?
+A: Through behavioral baselining:
+1. LEARN PHASE (7-14 days): Track per-user, per-endpoint metrics
+   - Request rate, object ID cardinality, data volume, geolocation
+   - Example baseline: User accesses 2-3 order IDs per day
+2. DETECT PHASE: Flag deviations from baseline
+   - Anomaly: User accesses 100+ distinct IDs in 10 minutes
+   - Pattern: Sequential enumeration (1, 2, 3, 4...)
+   - Risk score: 95/100 → Alert: "High Cardinality Object Access"
+3. RESPOND: Signal App & API Protector to block at edge
+
+---
+
+CARD 4: Native Connector
+Q: What is Akamai's Native Connector and why is it a competitive advantage?
+A: The Native Connector mirrors traffic from Akamai's edge network directly to the API Security analytics engine.
+
+ADVANTAGES:
+- Zero deployment friction (flip a switch in Akamai Control Center)
+- No on-premise collectors/agents required
+- Leverages existing Akamai CDN infrastructure
+- Time-to-Value: Hours instead of months
+- Zero latency impact (out-of-band mirroring)
+
+COMPETITORS DISADVANTAGE: Salt/Traceable require deploying separate sensors, configuring SPAN ports, or installing agents → higher deployment complexity.
+
+---
+
+CARD 5: Four Pillars
+Q: What are the 4 pillars of Akamai API Security platform?
+A: 
+1. DISCOVERY: Find shadow/zombie APIs via traffic analysis + code scanning
+2. POSTURE: Audit configurations for misconfigurations/vulnerabilities
+3. RUNTIME PROTECTION: Behavioral anomaly detection (BOLA, BFLA, exfiltration)
+4. ACTIVE TESTING (Shift-Left): CI/CD integration for pre-production fuzzing
+
+Each pillar addresses a different phase of the API lifecycle: Design → Deploy → Runtime → Incident.
+
+---
+
+CARD 6: AAP vs API Security
+Q: What's the difference between App & API Protector (AAP) and API Security?
+A: 
+APP & API PROTECTOR (AAP):
+- Deployment: Inline at edge (350K+ servers globally)
+- Function: Real-time blocking (DDoS, WAF, bot management)
+- Strength: Volumetric attacks, signature-based threats
+- Limitation: Cannot detect logic abuse (BOLA, BFLA)
+
+API SECURITY (Noname):
+- Deployment: Out-of-band (sideband analysis)
+- Function: Behavioral analytics, discovery, shift-left testing
+- Strength: Logic abuse, shadow APIs, authorization flaws
+- Limitation: Cannot block directly (signals AAP to enforce)
+
+TOGETHER: Defense-in-depth (Shield + Radar)
+
+---
+
+CARD 7: BOLA Remediation
+Q: What are the immediate, short-term, and long-term remediations for a BOLA vulnerability?
+A: 
+IMMEDIATE (0-24 hours):
+- Block attacker IP at edge
+- Revoke compromised session tokens
+- Virtual patch via WAF rule
+
+SHORT-TERM (1-7 days):
+- Code fix: Add ownership check
+```python
+  if order.user_id != current_user.id:
+      return 403
+```
+- Deploy to production
+- Regression testing
+
+LONG-TERM (1-4 weeks):
+- Replace sequential IDs with UUIDs (prevent enumeration)
+- CI/CD integration (Akamai Active Testing)
+- API security audit for similar flaws
+- Developer training (OWASP API Top 10)
+
+---
+
+CARD 8: Behavioral Baseline Metrics
+Q: What specific metrics does Akamai API Security track to build behavioral baselines?
+A: 
+Per-user, per-endpoint over 7-14 days:
+1. REQUEST RATE: Calls per minute/hour/day
+2. OBJECT ID CARDINALITY: Number of unique resource IDs accessed
+3. DATA VOLUME: Bytes transferred in requests/responses
+4. GEOLOCATION: Countries/cities of origin
+5. TIME PATTERNS: Active hours, session duration
+6. SEQUENCE PATTERNS: Random vs. sequential access
+
+ANOMALY TRIGGERS:
+- 5x+ increase in any metric
+- Sequential ID patterns (1, 2, 3, 4...)
+- Unusual geolocation (user in US, then Russia 5 min later)
+- Off-hours activity (midnight access from 9-5 user)
+
+---
+
+CARD 9: Shadow vs Zombie APIs
+Q: What's the difference between Shadow APIs and Zombie APIs?
+A: 
+SHADOW APIs:
+- Definition: Undocumented endpoints deployed outside governance
+- How created: Developer shortcuts, testing endpoints left active
+- Risk: No security controls (auth, rate limiting, monitoring)
+- Detection: Traffic analysis reveals endpoints not in Swagger spec
+
+ZOMBIE APIs:
+- Definition: Deprecated endpoints still receiving traffic
+- How created: Old versions not decommissioned (e.g., /v1/login still active)
+- Risk: Running outdated/vulnerable code, bypassing new controls
+- Detection: Version analysis (traffic to /v1/* when /v3/* is current)
+
+BOTH: Discovered by Akamai's continuous traffic monitoring + spec comparison.
+
+---
+
+CARD 10: Elevator Pitch Key Points
+Q: What are the 3 key points in the "Edge-to-Code" elevator pitch?
+A: 
+1. EDGE PROTECTION (AAP):
+   "Blocks volumetric attacks—DDoS, credential stuffing, bots—using 350K+ servers globally. Attackers never reach your data center."
+
+2. DEEP ANALYTICS (API Security):
+   "Catches logic abuse traditional WAFs miss—authenticated users exfiltrating data, shadow APIs, authorization flaws—via behavioral ML."
+
+3. NATIVE INTEGRATION (Differentiator):
+   "One vendor, one platform, one contract. Edge and analytics natively connected. Point solutions require complex integrations; Akamai unifies."
+
+COMPETITIVE COUNTER:
+"Salt/Traceable = analytics only (need separate WAF integration)
+Cloudflare/Imperva = edge only (weak on API behavioral detection)
+Akamai = BOTH layers, natively integrated"
+
+---
+
+END OF FLASHCARDS
+Study Schedule: Review daily for 7 days (spaced repetition)
+Next Review: February 1, 2026
