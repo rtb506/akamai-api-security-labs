@@ -1,0 +1,81 @@
+DAY 1: DEFINITION OF DONE - VERIFICATION
+=========================================
+Date: January 31, 2026
+Start: 12:00 PM | End: 17:20 PM
+Total Time: 5h 20m (target was 6h - AHEAD OF SCHEDULE!)
+
+DELIVERABLES:
+-------------
+[✅] 1. crAPI BOLA writeup with screenshots
+     - File: writeups/day1_crapi_bola.md
+     - Proof: 3 screenshots (orders 2, 3, 4)
+     - Attack chain documented
+     - Akamai detection story included
+     - Remediation guidance provided
+
+[✅] 2. Akamai architecture notes + diagram
+     - File: notes/day1_akamai_architecture.md
+     - Coverage: Native Connector, 4 pillars, AAP vs API Security
+     - Competitive positioning (vs Salt/Traceable/42Crunch)
+     - Detection methodology explained
+
+[✅] 3. GitHub repo initialized with first commit
+     - URL: https://github.com/rtb506/akamai-api-security-labs
+     - Structure: writeups/, notes/, proof/, flashcards/, cheatsheets/
+     - README.md professional and CV-ready
+     - 2 commits total (initial + flashcards)
+
+[✅] 4. 10 flashcards created
+     - File: flashcards/day1_flashcards.txt
+     - Coverage: BOLA, detection, architecture, competitive intel
+     - Format: Q&A for spaced repetition
+     - Bonus: Quick reference cheat sheet added
+
+[✅] 5. Can explain Native Connector from memory
+     - Definition: Edge-to-analytics traffic mirroring bridge
+     - Value: Zero deployment friction for Akamai CDN customers
+     - Differentiator: Hours to TTV vs months (competitor collectors)
+     - Technical: Out-of-band, zero latency, leverages 350K+ edge servers
+
+KNOWLEDGE VERIFICATION:
+-----------------------
+[✅] Can explain BOLA attack chain (Recon → Exploit → Proof)
+[✅] Can articulate why WAFs miss BOLA (syntactically valid requests)
+[✅] Can describe Akamai behavioral baselining (7-14 days, 6 metrics)
+[✅] Can differentiate AAP (inline shield) vs API Security (OOB radar)
+[✅] Can pitch "Edge-to-Code" narrative in 2 minutes
+[✅] Can position Akamai vs Salt/Traceable (block at edge, agentless)
+
+BONUS ACHIEVEMENTS:
+-------------------
+[✅] Finished 40 minutes early (17:20 vs 18:00 target)
+[✅] Created bonus cheat sheet (quick reference)
+[✅] Professional GitHub presence (recruiter-ready)
+[✅] Hands-on exploitation success (BOLA confirmed in crAPI)
+[✅] Clean documentation (no gaps, all screenshots present)
+
+PASS/FAIL GATE:
+---------------
+RESULT: ✅✅✅ PASS - ALL CRITERIA MET
+
+Day 1 officially COMPLETE.
+Ready to proceed to Day 2 tomorrow.
+
+LESSONS LEARNED:
+----------------
+1. crAPI video endpoint was patched - pivoted to shop orders (good adaptation)
+2. Burp Suite workflow is solid (request modification, repeater usage)
+3. Behavioral detection concept is clear (baseline vs anomaly)
+4. GitHub portfolio structure works well (clean, professional)
+5. Time management: Finished ahead of schedule
+
+TOMORROW'S PREP:
+----------------
+- Review Day 1 flashcards (15 min morning warmup)
+- Read Dossier A Section 2.2 (behavioral detection deep-dive)
+- Have crAPI running before start time
+- Install Burp JWT Editor extension for Day 2 labs
+
+---
+Steven Riley | Day 1/5 Complete
+Next session: Day 2 - February 1, 2026
