@@ -1,0 +1,20 @@
+# Sensitive data
+*.env
+*.key
+*.pem
+secrets/
+tokens/
+
+# Build artifacts
+__pycache__/
+*.pyc
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,34 @@
+BOLA ATTACK CHAIN - EXECUTIVE SUMMARY
+======================================
+
+TARGET: GET /workshop/api/shop/orders/{order_id}
+IMPACT: Complete customer database exposure
+
+ATTACK STEPS:
+1. RECON: Authenticated as test@example.com, order_id=4
+2. BASELINE: GET /orders/4 → 200 OK (own order)
+3. EXPLOIT: GET /orders/3 → 200 OK (robot001's order) ← BOLA
+4. ENUMERATE: GET /orders/2 → 200 OK (po9ha006's order) ← BOLA
+5. SCALE: Automate enumeration for IDs 1-N (entire database)
+
+ROOT CAUSE:
+- Server checks authentication (valid token?)
+- Server FAILS to check authorization (does user own this order?)
+- Classic IDOR/BOLA vulnerability
+
+AKAMAI DETECTION:
+- Baseline: User accesses 2 order_ids/day
+- Anomaly: User accesses 100+ order_ids in 10 minutes
+- Risk Score: 95/100
+- Alert: "High Cardinality Object Access - Potential BOLA"
+- Action: Block IP at edge, revoke session
+
+BUSINESS IMPACT:
+- Confidentiality: HIGH (PII/PCI exposure)
+- Compliance: GDPR/PCI DSS violation
+- Financial: $10M+ potential fines
+- Reputational: Customer trust loss
+
+FIX:
+if order.user_id != current_user.id:
+    return 403
