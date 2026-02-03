@@ -73,6 +73,7 @@ This repository documents a structured 32-hour intensive training program design
  **[BFLA in crAPI](writeups/day2_crapi_bfla.md)** - BFLA exploitation in admin endpoints  
 **[JWT Portswigger attack](writeups/day2_portswigger_jwt.md)**- JWT attacks (alg:none, weak HMAC, claim tampering)  
 **[SEv1 escalation script](templates/sev1_escalation_script.md)**- Sev1 escalation roleplay
+
 **[Behavioral detection main notes](tnotes/day2_behavioral_detection.md)** - Behavvioral Detection
 
 
