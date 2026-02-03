@@ -10,21 +10,19 @@ If you only have a minute, read this section and click one link.
 
 ### Best writeups
 
-- **Day 1 – BOLA in crAPI Shop Orders**  
+- **[Day 1 – BOLA in crAPI Shop Orders](writeups/day1_crapi_bola.md)**  
   End-to-end Broken Object Level Authorization: exploit sequential order IDs, quantify blast radius (200+ orders), and outline Akamai behavioral detection.
 
-- **Akamai Architecture Notes**  
+- **[Akamai Architecture Notes](notes/day1_akamai_architecture.md)**  
   How App & API Protector and API Security work together (edge enforcement + deep analytics) using Native Connector and the 4-pillar model.
-
-> Tip: You can reuse the existing Day 1 links here. Just copy the two bullets from the “Lab Index → Day 1” section and paste them under this heading.
 
 ### One simulated detection story
 
 > Authenticated user accesses 200+ unique order IDs in 10 minutes, after a 14-day baseline of 2–3/day.
 
-- Signals: sudden spike in object ID cardinality, abnormal access pattern for a single token/IP/user.
-- Detection: Akamai API Security flags behavioral anomaly and pushes high risk score to App & API Protector.
-- Response: TAM opens Sev1, correlates to BOLA pattern, and guides customer to fix authorization logic + tune enforcement.
+- **Signals:** sudden spike in object ID cardinality, abnormal access pattern for a single token/IP/user.  
+- **Detection:** Akamai API Security flags behavioral anomaly and pushes a high risk score to App & API Protector.  
+- **Response:** TAM opens Sev1, correlates to BOLA pattern, and guides customer to fix authorization logic + tune enforcement.
 
 ### Executive summary (5 lines)
 
@@ -34,6 +32,7 @@ If you only have a minute, read this section and click one link.
 - Evidence: writeups, diagrams, and flashcards designed to explain risk from L7 to VP/CISO level.  
 - All work is done on intentionally vulnerable training environments (no real systems targeted).
 
+---
 
 ## 🎯 About This Project
 
@@ -44,39 +43,42 @@ This repository documents a structured 32-hour intensive training program design
 ## 🛡️ Skills Demonstrated
 
 ### Offensive API Security
-- **OWASP API Top 10 Exploitation:** BOLA/IDOR, BFLA, Mass Assignment, Rate Limit Bypass, JWT attacks, SSRF
-- **Attack Methodology:** Recon → Exploitation → Proof → Remediation
-- **Tools:** Burp Suite, Postman, crAPI, PortSwigger Academy
+- **OWASP API Top 10 Exploitation:** BOLA/IDOR, BFLA, Mass Assignment, Rate Limit Bypass, JWT attacks, SSRF  
+- **Attack Methodology:** Recon → Exploitation → Proof → Remediation  
+- **Tools:** Burp Suite, Postman, crAPI, PortSwigger Academy  
 
 ### Akamai Platform Knowledge
-- **Behavioral Anomaly Detection:** Baseline profiling, cardinality analysis, risk scoring
-- **Architecture:** App & API Protector (edge enforcement) vs API Security (deep analytics)
-- **Native Connector:** Edge-to-analytics traffic mirroring for low-friction deployment
-- **Detection Engineering:** Translating attack patterns into detection rules
+- **Behavioral Anomaly Detection:** Baseline profiling, cardinality analysis, risk scoring  
+- **Architecture:** App & API Protector (edge enforcement) vs API Security (deep analytics)  
+- **Native Connector:** Edge-to-analytics traffic mirroring for low-friction deployment  
+- **Detection Engineering:** Translating attack patterns into detection rules  
 
 ### Customer-Facing Communication
-- **Incident Response:** Sev1 escalation handling, root cause analysis, remediation guidance
-- **Executive Briefings:** Translating technical vulnerabilities to business risk (CISO/VP level)
-- **Value Engineering:** ROI justification, compliance mapping (PCI DSS, GDPR, DORA)
+- **Incident Response:** Sev1 escalation handling, root cause analysis, remediation guidance  
+- **Executive Briefings:** Translating technical vulnerabilities to business risk (CISO/VP level)  
+- **Value Engineering:** ROI justification, compliance mapping (PCI DSS, GDPR, DORA)  
 
 ---
 
 ## 📚 Lab Index
 
-### Day 1: Foundation - BOLA Exploitation & Akamai Architecture
-- **[BOLA in crAPI Shop Orders](writeups/day1_crapi_bola.md)** - Broken Object Level Authorization exploitation with behavioral detection analysis
-- **[Akamai Architecture Notes](notes/day1_akamai_architecture.md)** - Native Connector, 4-pillar model, Edge vs Origin security
-- **[Elevator Pitch](notes/day1_elevator_pitch.md)** - "Why Akamai Edge-to-Code beats point solutions"
+### Day 1: Foundation – BOLA Exploitation & Akamai Architecture
 
-### Day 2: Behavioral Detection + BFLA + JWT *(Upcoming)*
-- BFLA exploitation in admin endpoints
-- JWT attacks (alg:none, weak HMAC, claim tampering)
-- Sev1 escalation roleplay
+- **[BOLA in crAPI Shop Orders](writeups/day1_crapi_bola.md)** – Broken Object Level Authorization exploitation with behavioral detection analysis  
+- **[Akamai Architecture Notes](notes/day1_akamai_architecture.md)** – Native Connector, 4-pillar model, Edge vs Origin security  
+- **[Elevator Pitch](notes/day1_elevator_pitch.md)** – “Why Akamai Edge-to-Code beats point solutions”  
 
-### Day 3: Rate Limiting + Mass Assignment + Competitive Intel *(Upcoming)*
-- Rate limit bypass techniques
-- Mass assignment exploitation
-- Akamai vs Traceable/Salt positioning
+### Day 2: Behavioral Detection + BFLA + JWT (Upcoming)
+
+- BFLA exploitation in admin endpoints  
+- JWT attacks (alg:none, weak HMAC, claim tampering)  
+- Sev1 escalation roleplay  
+
+### Day 3: Rate Limiting + Mass Assignment + Competitive Intel (Upcoming)
+
+- Rate limit bypass techniques  
+- Mass assignment exploitation  
+- Akamai vs Traceable/Salt positioning  
 
 <details>
   <summary><strong>Roadmap – Upcoming Labs</strong></summary>
@@ -97,7 +99,6 @@ This repository documents a structured 32-hour intensive training program design
 
 </details>
 
-
 ---
 
 ## 🔧 Tools & Environments
@@ -114,10 +115,10 @@ This repository documents a structured 32-hour intensive training program design
 
 ## 📊 Training Metrics
 
-- **Total Hours:** 32 (30 prep + 2 interview day)
-- **Vulnerabilities Exploited:** 5+ (BOLA, BFLA, JWT, Rate Limit, Mass Assignment)
-- **Documentation:** 5+ professional writeups with screenshots
-- **Flashcards:** 100+ covering attack vectors, detection, remediation
+- **Total Hours:** 32 (30 prep + 2 interview day)  
+- **Vulnerabilities Exploited:** 5+ (BOLA, BFLA, JWT, Rate Limit, Mass Assignment)  
+- **Documentation:** 5+ professional writeups with screenshots  
+- **Flashcards:** 100+ covering attack vectors, detection, remediation  
 
 ---
 
@@ -127,19 +128,21 @@ This repository documents a structured 32-hour intensive training program design
 **To:** API security offensive/defensive specialist (Akamai TAM II preparation)
 
 **Critical Skill Bridges:**
-- Snort signature analysis → API behavioral anomaly detection
-- PCAP analysis → JSON payload inspection
-- Network IDS → Application-layer logic abuse detection
-- Firewall policy → API gateway hardening
+
+- Snort signature analysis → API behavioral anomaly detection  
+- PCAP analysis → JSON payload inspection  
+- Network IDS → Application-layer logic abuse detection  
+- Firewall policy → API gateway hardening  
 
 ---
 
 ## ⚖️ Ethical Statement
 
 All testing conducted in **isolated, deliberately vulnerable environments** designed for security training:
-- **crAPI:** OWASP intentionally vulnerable API (local Docker container)
-- **PortSwigger Labs:** Authorized educational platform
-- **Personal Home Lab:** No production systems targeted
+
+- **crAPI:** OWASP intentionally vulnerable API (local Docker container)  
+- **PortSwigger Labs:** Authorized educational platform  
+- **Personal Home Lab:** No production systems targeted  
 
 **Zero real-world systems were accessed or harmed during this training.**
 
@@ -148,25 +151,19 @@ This repository is for **educational purposes** and **interview preparation** on
 ---
 
 ## 📬 Contact
-##  Contact
 
-Steven Riley
+Steven Riley  
 
-##  Contact
-
-Steven Riley
-
-- LinkedIn: [stevenriley-techsupport-cr](https://www.linkedin.com/in/stevenriley-techsupport-cr/)
-- Role Target: Akamai Security Technical Account Manager II (Advanced Technology Group)
-
+- LinkedIn: [stevenriley-techsupport-cr](https://www.linkedin.com/in/stevenriley-techsupport-cr/)  
+- Role Target: Akamai Security Technical Account Manager II (Advanced Technology Group)  
 
 ---
 
 ## 📅 Project Timeline
 
-- **Start Date:** January 31, 2026
-- **Target Interview:** February 2026
-- **Status:** Day 1 Complete ✅
+- **Start Date:** January 31, 2026  
+- **Target Interview:** February 2026  
+- **Status:** Day 1 Complete ✅  
 
 ---
 
