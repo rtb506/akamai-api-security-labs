@@ -74,7 +74,7 @@ This repository documents a structured 32-hour intensive training program design
 **[JWT Portswigger attack](writeups/day2_portswigger_jwt.md)**- JWT attacks (alg:none, weak HMAC, claim tampering)  
 **[SEv1 escalation script](templates/sev1_escalation_script.md)**- Sev1 escalation roleplay
 
-**[Behavioral detection main notes](tnotes/day2_behavioral_detection.md)** - Behavvioral Detection
+**[Behavioral detection main notes](notes/day2_behavioral_detection.md)** - Behavioral Detection
 
 
 ### Day 3: Rate Limiting + Mass Assignment + Competitive Intel (Upcoming)
