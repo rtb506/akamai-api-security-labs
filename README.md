@@ -1,6 +1,6 @@
 # Akamai API Security Labs - Steven Riley
 
-**Hands-on journey mastering offensive API security techniques and Akamai detection/mitigation strategies for Security TAM II interview preparation.**
+**Hands-on labs demonstrating offensive API security techniques and how Akamai detects and mitigates them, aligned to Security TAM II responsibilities.**
 
 ---
 
@@ -21,7 +21,7 @@ If you only have a minute, read this section and click one link.
 > Authenticated user accesses 200+ unique order IDs in 10 minutes, after a 14-day baseline of 2–3/day.
 
 - **Signals:** sudden spike in object ID cardinality, abnormal access pattern for a single token/IP/user.  
-- **Detection:** Akamai API Security flags behavioral anomaly and pushes a high risk score to App & API Protector.  
+- **Detection:** Akamai API Security identifies a behavioral anomaly and elevates risk context, enabling enforcement decisions via App & API Protector.
 - **Response:** TAM opens Sev1, correlates to BOLA pattern, and guides customer to fix authorization logic + tune enforcement.
 
 ### Executive summary (5 lines)
