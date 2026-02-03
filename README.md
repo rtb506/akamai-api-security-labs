@@ -78,15 +78,25 @@ This repository documents a structured 32-hour intensive training program design
 - Mass assignment exploitation
 - Akamai vs Traceable/Salt positioning
 
-### Day 4: SSRF + Executive Communication *(Upcoming)*
-- Server-side request forgery (cloud metadata attacks)
-- Board-level briefing templates
-- Technical deep-dive presentations
+<details>
+  <summary><strong>Roadmap – Upcoming Labs</strong></summary>
 
-### Day 5: Capstone + Portfolio Finalization *(Upcoming)*
-- End-to-end API breach investigation scenario
-- Top 10 interview questions (rehearsed & timed)
-- GitHub portfolio polish
+<br />
+
+### Day 4: SSRF + Executive Communication (Upcoming)
+
+- Server-side request forgery (cloud metadata attacks)  
+- Board-level briefing templates  
+- Technical deep-dive presentations  
+
+### Day 5: Capstone + Portfolio Finalization (Upcoming)
+
+- End-to-end API breach investigation scenario  
+- Top 10 interview questions (rehearsed & timed)  
+- GitHub portfolio polish  
+
+</details>
+
 
 ---
 
@@ -138,11 +148,17 @@ This repository is for **educational purposes** and **interview preparation** on
 ---
 
 ## 📬 Contact
+##  Contact
 
-**Steven Riley**  
-- **LinkedIn:** [stevenriley-techsupport-cr](https://linkedin.com/in/stevenriley-techsupport-cr)  
-- **Email:** redteambravo@gmail.com  
-- **Role Target:** Akamai Security Technical Account Manager II (Advanced Technology Group)
+Steven Riley
+
+##  Contact
+
+Steven Riley
+
+- LinkedIn: [stevenriley-techsupport-cr](https://www.linkedin.com/in/stevenriley-techsupport-cr/)
+- Role Target: Akamai Security Technical Account Manager II (Advanced Technology Group)
+
 
 ---
 
