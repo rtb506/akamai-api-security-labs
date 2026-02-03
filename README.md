@@ -4,6 +4,37 @@
 
 ---
 
+## 🚀 Start Here (60-second overview)
+
+If you only have a minute, read this section and click one link.
+
+### Best writeups
+
+- **Day 1 – BOLA in crAPI Shop Orders**  
+  End-to-end Broken Object Level Authorization: exploit sequential order IDs, quantify blast radius (200+ orders), and outline Akamai behavioral detection.
+
+- **Akamai Architecture Notes**  
+  How App & API Protector and API Security work together (edge enforcement + deep analytics) using Native Connector and the 4-pillar model.
+
+> Tip: You can reuse the existing Day 1 links here. Just copy the two bullets from the “Lab Index → Day 1” section and paste them under this heading.
+
+### One simulated detection story
+
+> Authenticated user accesses 200+ unique order IDs in 10 minutes, after a 14-day baseline of 2–3/day.
+
+- Signals: sudden spike in object ID cardinality, abnormal access pattern for a single token/IP/user.
+- Detection: Akamai API Security flags behavioral anomaly and pushes high risk score to App & API Protector.
+- Response: TAM opens Sev1, correlates to BOLA pattern, and guides customer to fix authorization logic + tune enforcement.
+
+### Executive summary (5 lines)
+
+- 32-hour focused program to move from network defender (Firepower/Snort) to API security TAM.  
+- Labs cover OWASP API Top 10 attack patterns plus how Akamai detects and mitigates them.  
+- Each lab documents: **attack path → signals/logs → mitigation → customer messaging**.  
+- Evidence: writeups, diagrams, and flashcards designed to explain risk from L7 to VP/CISO level.  
+- All work is done on intentionally vulnerable training environments (no real systems targeted).
+
+
 ## 🎯 About This Project
 
 This repository documents a structured 32-hour intensive training program designed to bridge network security expertise (Cisco Firepower, Snort IDS) with modern API security offensive/defensive capabilities. The focus is on **demonstrating practical exploitation skills** while understanding **how Akamai API Security detects and prevents** these attacks.
