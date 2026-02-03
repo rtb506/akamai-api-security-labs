@@ -70,17 +70,16 @@ This repository documents a structured 32-hour intensive training program design
 
 ### Day 2: Behavioral Detection + BFLA + JWT (Upcoming)
 
- **[BFLA in crAPI](writeups/day2_crapi_bfla.md)** - BFLA exploitation in admin endpoints  
-**[JWT Portswigger attack](writeups/day2_portswigger_jwt.md)**- JWT attacks (alg:none, weak HMAC, claim tampering)  
-**[SEv1 escalation script](templates/sev1_escalation_script.md)**- Sev1 escalation roleplay
-
-**[Behavioral detection main notes](notes/day2_behavioral_detection.md)** - Behavioral Detection
+- **[BFLA in crAPI](writeups/day2_crapi_bfla.md)** - BFLA exploitation in admin endpoints  
+- **[JWT Portswigger attack](writeups/day2_portswigger_jwt.md)**- JWT attacks (alg:none, weak HMAC, claim tampering)  
+- **[SEv1 escalation script](templates/sev1_escalation_script.md)**- Sev1 escalation roleplay
+- **[Behavioral detection main notes](notes/day2_behavioral_detection.md)** - Behavioral Detection
 
 
 ### Day 3: Rate Limiting + Mass Assignment + Competitive Intel (Upcoming)
 
- **[Mass Assignment on crAPI (BOPLA)](writeups/day3_crapi_mass_assignment)** - BOPLA/Mass assignment exploitation 
- **[OWASP API4](writeups/day3_crapi_rate_limit.md)**- Rate limit bypass techniques  
+- **[Mass Assignment on crAPI (BOPLA)](writeups/day3_crapi_mass_assignment)** - BOPLA/Mass assignment exploitation 
+- **[OWASP API4](writeups/day3_crapi_rate_limit.md)**- Rate limit bypass techniques  
 - Akamai vs Traceable/Salt positioning  
 
 <details>
