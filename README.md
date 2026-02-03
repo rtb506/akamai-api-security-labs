@@ -79,8 +79,8 @@ This repository documents a structured 32-hour intensive training program design
 
 ### Day 3: Rate Limiting + Mass Assignment + Competitive Intel (Upcoming)
 
-- Rate limit bypass techniques  
-- Mass assignment exploitation  
+ **[Mass Assignment on crAPI (BOPLA)](writeups/day3_crapi_mass_assignment)** - BOPLA/Mass assignment exploitation 
+ **[OWASP API4](writeups/day3_crapi_rate_limit.md)**- Rate limit bypass techniques  
 - Akamai vs Traceable/Salt positioning  
 
 <details>
