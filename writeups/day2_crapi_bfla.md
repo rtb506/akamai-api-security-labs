@@ -13,6 +13,7 @@
 - Alert: "Low-privilege user accessing admin function"
 - Pattern: Regular user hitting `/admin/*` paths
 - Risk score: 88/100
+- While BFLA cannot be prevented purely at the edge, Akamai can surface anomalous role usage and access patterns that differ from established user baselines.
 
 ## Remediation
 ```python
