@@ -1,0 +1,47 @@
+DAY 2 FLASHCARDS
+================
+
+11. What is BFLA?
+A: Broken Function Level Authorization - low-privilege user accessing admin functions (vertical privilege escalation). Example: Regular user calling DELETE /api/admin/users.
+
+12. BOLA vs BFLA difference?
+A: BOLA = accessing wrong DATA (horizontal - same role, different user's resources). BFLA = accessing wrong FUNCTION (vertical - low role to admin function).
+
+13. JWT structure?
+A: header.payload.signature (Base64 encoded). Header = algorithm + type. Payload = claims (sub, exp, iat). Signature = HMAC or RSA.
+
+14. What is alg:none attack?
+A: JWT header set to "alg":"none", signature removed. If server doesn't validate, accepts unsigned token. Attacker can forge any claims.
+
+15. How does Akamai detect JWT tampering?
+A: Behavioral detection - user's token claims suddenly change (sub, role). Posture scan flags weak JWT config (alg:none allowed, weak secret).
+
+16. What metrics does behavioral baselining track?
+A: 1) Request rate 2) Object ID cardinality 3) Data volume 4) Geolocation 5) Time-of-day patterns 6) HTTP method distribution.
+
+17. True Positive vs False Positive - key indicator?
+A: Sequential access pattern = TP (humans don't access IDs 1,2,3,4,5...). Business justification + whitelisted job = FP.
+
+18. Sev1 escalation - 5 steps?
+A: 1) Acknowledge 2) Gather data 3) Root cause 4) Mitigation (immediate + long-term) 5) Follow-up with RCA timeline.
+
+19. Rate limit bypass techniques?
+A: 1) Rotate IPs 2) Change User-Agent 3) Use X-Forwarded-For header 4) Distribute across botnets 5) Race conditions (simultaneous requests).
+
+20. How to whitelist legitimate high-volume traffic?
+A: Create exception rules based on: 1) Known API key 2) Specific User-Agent 3) IP range (partners) 4) Time window (scheduled jobs).
+
+21. What is behavioral baseline learning period?
+A: 7-14 days of observation (no blocking) to establish "normal" per-user, per-endpoint patterns. Required for low false positive rate.
+
+22. Dashboard triage workflow for high-cardinality alert?
+A: 1) Check Incident Timeline 2) Analyze access pattern (sequential?) 3) Verify baseline 4) Check business justification 5) True Positive → Block, False Positive → Whitelist.
+
+23. Why do WAFs fail at detecting BOLA?
+A: BOLA requests are syntactically valid (proper JSON, valid token, 200 OK status). WAFs detect syntax errors, not authorization logic flaws.
+
+24. Native Connector advantage?
+A: Mirrors edge traffic to API Security engine without deploying collectors. Zero deployment friction. Hours to value vs months.
+
+25. Akamai vs Salt Security - key differentiator?
+A: Akamai blocks at edge (App & API Protector inline). Salt requires WAF integration for blocking. Akamai = unified platform.
