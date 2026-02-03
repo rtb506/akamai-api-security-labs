@@ -2,6 +2,7 @@
 
 ## Vulnerability
 JWT header allows `"alg": "none"` - server doesn't verify signature
+(This attack is only viable when the API fails to properly validate JWT signatures or incorrectly trusts client-supplied claims).
 
 ## Attack
 1. Decode JWT: `eyJ0eXA...` → `{"alg":"HS256","typ":"JWT"}`
