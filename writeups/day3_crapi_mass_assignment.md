@@ -283,6 +283,8 @@ Risk Score: 95/100 (CRITICAL)
 
 ## Remediation
 
+In customer conversations, this issue is often reframed as “over-posting” or “unsafe object binding,” which helps application teams quickly recognize the pattern.
+
 ### Immediate (0-24 hours)
 1. **Akamai:** Block attacker's JWT token, alert customer security team
 2. **Customer:** Deploy virtual patch via WAF:
