@@ -124,7 +124,7 @@ This repository documents a structured 32-hour intensive training program design
 
 ## 🎓 Background Context
 
-**From:** Cisco network defender (Firepower NGFW, Snort IDS, Sev1 incident response)  
+**From:** Cisco network defender/appsec enthusiast and junior pentester (Firepower NGFW, Snort IDS, Sev1 incident response)  
 **To:** API security offensive/defensive specialist (Akamai TAM II preparation)
 
 **Critical Skill Bridges:**
