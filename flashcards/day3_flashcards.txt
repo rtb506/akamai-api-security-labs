@@ -1,0 +1,33 @@
+DAY 3 FLASHCARDS (26-35)
+========================
+
+26. What is API4:2023 Unrestricted Resource Consumption?
+A: Missing or ineffective rate limiting allows attackers to abuse API resources (brute-force, DoS, enumeration). Examples: unlimited login attempts, coupon validation spam, file upload floods.
+
+27. Rate limit bypass technique #1?
+A: IP spoofing via X-Forwarded-For header. Server trusts this header to identify source IP, allowing attacker to rotate IPs (192.168.1.1, .2, .3...) and reset rate limit counter.
+
+28. Rate limit bypass technique #2?
+A: Race condition (TOCTOU). Send 50 simultaneous requests in <100ms window. Server's atomic counter check fails, allowing more requests than limit before counter increments.
+
+29. How does Akamai detect distributed rate limit abuse?
+A: Flags: 1) Sequential IP pattern (192.168.1.X), 2) Identical User-Agent across IPs, 3) Bot-speed timing (<100ms clusters), 4) Hosting provider IPs (not residential). Risk score: 90-100/100.
+
+30. What is mass assignment (API3:2023)?
+A: Server blindly binds ALL JSON input fields to database model. Attacker injects hidden fields (role, is_admin, credits) to escalate privileges. Example: {"email":"x@x.com","role":"admin"}
+
+31. Why do WAFs miss mass assignment?
+A: Request is syntactically valid JSON with proper auth. WAF validates structure, not authorization logic. Hidden fields like "role":"admin" look like normal data to signature-based detection.
+
+32. How does Akamai detect mass assignment?
+A: Posture scan flags schema violations (request has 5 fields, spec allows 1). Runtime detects: restricted keywords (role, is_admin), privilege mismatch (user JWT setting admin field). Risk: 95/100.
+
+33. Why Akamai over Traceable AI?
+A: **Workflow:** Traceable detects, Akamai detects AND blocks. **Enforcement:** Akamai has native edge blocking (AAP), Traceable needs WAF integration. **Deployment:** Akamai agentless, Traceable often requires in-app agents.
+
+34. Why Akamai over Salt Security?
+A: **Edge Advantage:** Akamai blocks attacks at global edge (350K servers), Salt requires separate WAF. **Native Connector:** Flip-a-switch for CDN customers (hours TTV), Salt needs complex collectors. **Unified:** 1 platform vs 2 vendors.
+
+35. Native Connector - 30 second pitch?
+A: "For existing Akamai CDN customers, our Native Connector mirrors your edge traffic directly to the API Security analytics engine—zero deployment friction. You literally flip a switch in the control center. No on-premise collectors, no SPAN ports, no agents. Hours-to-days time-to-value instead of weeks-to-months. It's the lowest-friction API security deployment in the market."
+
